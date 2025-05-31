@@ -26,6 +26,9 @@ def spread_fire(grid, fire_map):
     for i in range(rows):
         for j in range(cols):
             if fire_map[i, j]:
+                # check adjacent grid cells to see home is present
+                # if home is present, spread fire to the home
+                # fire does not spread diagonally currently
                 for dx, dy in [(-1,0), (1,0), (0,-1), (0,1)]:
                     ni, nj = i + dx, j + dy
                     if 0 <= ni < rows and 0 <= nj < cols and grid[ni, nj] == HOME:
